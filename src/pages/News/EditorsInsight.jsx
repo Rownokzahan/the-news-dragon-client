@@ -2,9 +2,9 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import img1 from '../../../assets/1.png';
-import img2 from '../../../assets/2.png';
-import img3 from '../../../assets/3.png';
+import img1 from '../../assets/1.png';
+import img2 from '../../assets/2.png';
+import img3 from '../../assets/3.png';
 import { CiCalendar } from "react-icons/ci";
 
 const EditorsInsight = () => {

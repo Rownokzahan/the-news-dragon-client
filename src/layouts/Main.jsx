@@ -5,11 +5,15 @@ import { Outlet } from 'react-router-dom';
 import { Col, Container, Row } from 'react-bootstrap';
 import RightNav from '../pages/Shared/RightNav/RightNav';
 import LeftNav from '../pages/Shared/LeftNav/LeftNav';
+import NavBar from '../pages/Shared/Header/NavBar';
+import MaqueeContainer from '../pages/Shared/Header/MaqueeContainer';
 
 const Main = () => {
     return (
         <>
             <Header />
+            <MaqueeContainer/>
+            <NavBar/>
             <Container>
                 <Row>
                     <Col lg={3}>
