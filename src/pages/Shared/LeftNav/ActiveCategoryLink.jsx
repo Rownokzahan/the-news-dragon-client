@@ -6,7 +6,7 @@ const ActiveCategoryLink = ({ to, children }) => {
         <NavLink
             to={to}
             className={({ isActive }) =>
-                isActive ? 'bg-secondary text-black text-decoration-none p-2' : 'text-decoration-none p-2 text-secondary'
+                isActive ? 'bg-secondary rounded-2 text-black text-decoration-none p-2' : 'text-decoration-none p-2 text-secondary'
             }
         >
             {children}
