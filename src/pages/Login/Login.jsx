@@ -1,11 +1,39 @@
 import React from 'react';
+import { useContext } from 'react';
 import { useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
 
+    const { login } = useContext(AuthContext);
     const [errorMessage, setErrorMessage] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || '/';
+
+    console.log(location);
+
+    const handleLogin = event => {
+        event.preventDefault();
+        setErrorMessage('');
+
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        // console.log(`Email: ${email}, Password: ${password}`);
+
+        login(email, password)
+            .then(result => {
+                form.reset();
+                navigate(from);
+            })
+            .catch(error => {
+                setErrorMessage(error.message);
+            })
+    }
 
     return (
         <div className="d-grid align-items-center mx-auto" style={{ height:'80vh' }}>
@@ -14,7 +42,7 @@ const Login = () => {
                 <hr className='my-5' />
 
                 <p className='text-danger text-center fw-semibold'>{ errorMessage }</p>
-                <Form>
+                <Form onSubmit={handleLogin}>
                     <Form.Group className="mb-3" controlId="formGroupEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control className='bg-light border-0 py-3' type="email" name="email" placeholder="Enter email" />

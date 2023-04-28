@@ -7,8 +7,13 @@ import { AuthContext } from '../../../providers/AuthProvider';
 
 const NavBar = () => {
 
-    const { user } = useContext(AuthContext);
-    console.log(user);
+    const { user, logout } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logout()
+            .then()
+            .catch(error => console.log(error))
+    }
 
     return (
 
@@ -26,15 +31,13 @@ const NavBar = () => {
                                 <Link href="/profile" className='text-decoration-none text-secondary'>
                                     <BsPersonCircle className='fs-3' />
                                 </Link>
-                                <Link to="/user/login">
-                                    <Button className='rounded-0' variant="dark">Logout</Button>
-                                </Link>
+                                <Button onClick={handleLogout} className='rounded-0' variant="dark">Logout</Button>
                             </div>
                             :
                             <Link to="/user/login">
                                 <Button className='rounded-0' variant="dark">Login</Button>
                             </Link>
-                    }
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Container>
