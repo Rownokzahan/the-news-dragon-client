@@ -1,7 +1,9 @@
 import moment from 'moment/moment';
 import React from 'react';
 import { BsBookmark, BsFillEyeFill, BsFillStarFill, BsShare, BsStar, BsStarHalf } from "react-icons/bs";
-import Rating from 'react-rating';
+// import Rating from 'react-rating';
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 import { Link } from 'react-router-dom';
 
 const NewsCard = ({ news }) => {
@@ -50,15 +52,13 @@ const NewsCard = ({ news }) => {
                 <hr className='my-3' />
 
                 <div className='d-flex justify-content-between align-items-center'>
-                    <div className='d-flex align-items-center'>
-                        <Rating className='text-danger'
-                            placeholderRating={rating?.number}
-                            readonly
-                            emptySymbol={<BsStar/>}
-                            placeholderSymbol={<BsFillStarFill />}
-                            fullSymbol={<BsFillStarFill/>}
+                    <div className='d-flex align-items-center gap-2'>
+                        <Rating
+                            style={{ maxWidth: 80 }}
+                            value={rating?.number}
+                            readOnly
                         />
-                        <span className='text-secondary mt-1 ms-2'>{rating.number ? rating.number : "Not Avaiable"}</span>
+                        <span className='text-secondary'>{rating.number ? rating.number : "Not Avaiable"}</span>
                     </div>
 
                     <div className='text-secondary d-flex align-items-center'>
