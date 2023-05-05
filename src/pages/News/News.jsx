@@ -2,9 +2,11 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { BsArrowLeftShort } from "react-icons/bs";
 import EditorsInsight from './EditorsInsight';
+import useTitle from '../../hooks/useTitle';
 
 const News = () => {
 
+    useTitle("News Detail");
     const news = useLoaderData();
     const { image_url, title, details, category_id } = news;
     return (

@@ -18,6 +18,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />, 
+                loader: () => fetch(`https://the-news-dragon-server-rownokzahan.vercel.app/categories/0`)
             },
         ]
     },
